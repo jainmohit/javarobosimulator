@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This configuration file was written by the eclipse-cs plugin configuration editor -->
+<!-- Checkstyle-Configuration: Green Cobra Description: -->
+
+<!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.2//EN"
+        "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
+<module name="Checker">
+
+    <property name="severity" value="warning"/>
+    <module name="SuppressWarningsFilter"/>
+
+    <module name="TreeWalker">
+        <property name="severity" value="error"/>
+        <module name="SuppressWarningsHolder"/>
+        <module name="FileContentsHolder">
+        </module>
+        <module name="ConstantName">
+        </module>
+        <module name="LocalFinalVariableName">
+        </module>
+        <module name="LocalVariableName">
+        </module>
+        <module name="MemberName">
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+        </module>
+        <module name="AbstractClassName">
+            <property name="format" value="^Abstract.*$"/>
+        </module>
+        <module name="ClassTypeParameterName">
+            <property name="format" value="^[A-Z]$"/>
+        </module>
+        <module name="MethodTypeParameterName">
+            <property name="format" value="^[A-Z]$"/>
+        </module>
+        <module name="MethodName">
+            <property name="format" value="^[a-z][a-zA-Z0-9_]*$"/>
+        </module>
+        <module name="PackageName">
+        </module>
+        <module name="ParameterName">
+        </module>
+        <module name="StaticVariableName">
+        </module>
+        <module name="TypeName">
+        </module>
+        <!--		<module name="AvoidStarImport">
+                </module>-->
+        <module name="IllegalImport">
+        </module>
+        <module name="RedundantImport">
+        </module>
+        <module name="UnusedImports">
+        </module>
+        <module name="ExecutableStatementCount">
+            <property name="max" value="50"/>
+        </module>
+        <module name="MethodLength">
+            <property name="max" value="60"/>
+            <property name="countEmpty" value="false"/>
+        </module>
+        <module name="AnonInnerLength">
+            <property name="max" value="15"/>
+        </module>
+        <module name="ParameterNumber">
+            <property name="max" value="15"/>
+            <property name="tokens" value="CTOR_DEF"/>
+        </module>
+        <module name="ParameterNumber">
+            <property name="tokens" value="METHOD_DEF"/>
+        </module>
+        <module name="ModifierOrder">
+        </module>
+        <module name="RedundantModifier">
+        </module>
+        <module name="EmptyBlock">
+            <property name="option" value="text"/>
+        </module>
+        <module name="LeftCurly">
+            <property name="severity" value="error"/>
+        </module>
+        <module name="NeedBraces">
+        </module>
+        <module name="RightCurly">
+        </module>
+        <module name="AvoidNestedBlocks">
+        </module>
+        <module name="CovariantEquals">
+        </module>
+        <module name="EmptyStatement">
+        </module>
+        <module name="EqualsHashCode">
+        </module>
+        <module name="HiddenField">
+            <property name="ignoreConstructorParameter" value="true"/>
+            <property name="ignoreSetter" value="true"/>
+            <property name="ignoreFormat" value="^set"/>
+        </module>
+        <module name="IllegalInstantiation">
+        </module>
+        <module name="MissingSwitchDefault">
+        </module>
+        <module name="ModifiedControlVariable">
+        </module>
+        <module name="SimplifyBooleanExpression">
+        </module>
+        <module name="SimplifyBooleanReturn">
+        </module>
+        <module name="StringLiteralEquality">
+        </module>
+        <module name="NestedIfDepth">
+        </module>
+        <module name="NestedTryDepth">
+        </module>
+        <module name="SuperClone">
+        </module>
+        <module name="ReturnCount">
+            <property name="max" value="6"/>
+        </module>
+        <module name="ParameterAssignment">
+        </module>
+        <module name="DefaultComesLast">
+        </module>
+        <module name="FallThrough">
+        </module>
+        <module name="VisibilityModifier">
+        </module>
+        <module name="FinalClass">
+        </module>
+        <module name="InterfaceIsType">
+        </module>
+        <module name="ClassDataAbstractionCoupling">
+            <property name="max" value="15"/>
+        </module>
+        <module name="ClassFanOutComplexity">
+            <property name="max" value="30"/>
+        </module>
+        <module name="CyclomaticComplexity">
+            <property name="max" value="10"/>
+        </module>
+        <module name="NPathComplexity">
+            <property name="max" value="20"/>
+        </module>
+        <module name="ArrayTypeStyle">
+        </module>
+
+    </module>
+    <module name="FileTabCharacter">
+        <property name="eachLine" value="true"/>
+        <property name="fileExtensions" value="java,sh,bat,xml,html,htm,js"/>
+    </module>
+    <module name="Translation"/>
+    <module name="SuppressionCommentFilter"/>
+    <module name="FileLength">
+        <property name="max" value="500"/>
+    </module>
+
+</module>

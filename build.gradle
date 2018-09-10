@@ -1,0 +1,94 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'checkstyle'
+apply plugin: 'jacoco'
+apply plugin: 'findbugs'
+apply plugin: 'application'
+
+group = 'com.mohit.robo'
+version = '1.0'
+
+description = "Java Robot Simulator"
+
+mainClassName = "com.mohit.robo.Application"
+
+applicationDefaultJvmArgs = ["-Dgreeting.language=en"]
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+jar {
+    manifest {
+        attributes(
+                'Built-By'              : System.properties['user.name'],
+                'Build-Timestamp'       : new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").format(new Date()),
+                'Created-By'            : "Gradle ${gradle.gradleVersion}",
+                'Build-Jdk'             : "${System.properties['java.version']} (${System.properties['java.vendor']} ${System.properties['java.vm.version']})",
+                'Build-OS'              : "${System.properties['os.name']} ${System.properties['os.arch']} ${System.properties['os.version']}",
+                'Implementation-Title'  : description,
+                'Implementation-Version': version,
+                'Main-Class'            : 'com.mohit.robo.Application'
+        )
+    }
+}
+
+clean.doFirst {
+    delete "${rootDir}/build/"
+    println "${rootDir}/build/ has been deleted"
+}
+
+repositories {
+
+    maven { url "http://repo.maven.apache.org/maven2" }
+}
+
+dependencies {
+
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+    compile 'com.google.code.findbugs:jsr305:3.0.0'
+    compile 'org.projectlombok:lombok:1.18.2'
+
+    // Spock
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+    testCompile group: 'commons-io', name: 'commons-io', version: '2.4'
+    testCompile group: 'org.mockito', name: 'mockito-core', version: '1.9.5'
+
+
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ["src/main/java"]
+        }
+        resources {
+            srcDir 'src/main/resources'
+        }
+    }
+    test {
+        java {
+            srcDirs = ["src/test/java"]
+        }
+    }
+}
+
+def checkstyleConfigDir = new File(rootDir, 'config/checkstyle')
+checkstyle {
+    configFile = new File(checkstyleConfigDir, "java-checkstyle.xml")
+    configProperties.checkstyleConfigDir = checkstyleConfigDir
+    toolVersion = "6.5"
+}
+
+findbugs {
+    sourceSets = [sourceSets.main]
+    toolVersion = '3.0.1'
+    includeFilter = rootProject.file('config/findbugs/java-findbugs.xml')
+}
+
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}
